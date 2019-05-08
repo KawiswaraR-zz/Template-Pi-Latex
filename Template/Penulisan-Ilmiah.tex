@@ -1,0 +1,168 @@
+%Frontend
+\documentclass[a4paper,12pt,oneside]{book}
+%Margin
+\usepackage[top=4cm, left=4cm, right=3cm, bottom=3cm]{geometry}
+%Citation 
+\usepackage[style=numeric,firstinits=true, sorting=nyt]{biblatex}
+\nocite{*}
+%ieee style
+%\usepackage[style=ieee,backend=biber,sorting=none]{biblatex}
+\addbibresource{../Isi/Reference.bib}  
+\usepackage{hyperref, url}
+%Change font type to TMR
+\usepackage{newtxtext,newtxmath}
+%Chapter Format
+%Change chapter name to bab
+\usepackage{fancyhdr}
+\renewcommand{\chaptername}{Bab}
+%Chapter align to center
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\large\bfseries\centering\singlespacing}{\chaptertitlename\ \thechapter}{10pt}{\large}
+%Set chapter before space
+\titlespacing*{\chapter}{-1cm}{-1cm}{40pt}
+%Change section, subsection, subsubsection font
+\titleformat{\section}
+{\normalfont\fontsize{12}{12}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\fontsize{12}{12}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\normalfont\fontsize{12}{12}\bfseries}{\thesubsubsection}{1em}{}
+%Change section, subsection, subsubsection line space
+\titlespacing\section{0pt}{12pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt}{0pt plus 2pt minus 2pt}
+%Table of content format
+\usepackage{tocloft}
+%Set line space before TOC, LOF, LOT title
+\setlength{\cftbeforetoctitleskip}{-2em}
+\setlength{\cftbeforeloftitleskip}{-2em}
+\setlength{\cftbeforelottitleskip}{-2em}
+%Center TOC, LOF, LOT
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\large\bfseries}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\large\bfseries}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+%Change name TOC, LOF, LOT
+\renewcommand{\contentsname}{DAFTAR ISI}
+\renewcommand{\listfigurename}{DAFTAR GAMBAR}
+\renewcommand{\listtablename}{DAFTAR TABEL}
+%Change name chapter, figure, table in TOC, LOF, LOT
+\renewcommand{\cftchapfont}{}
+\renewcommand{\cftfigfont}{Gambar }
+\renewcommand{\cfttabfont}{Tabel }
+%Change chapter, section, subsection fontsize
+\renewcommand\cftchapfont{\fontsize{12}{12}}
+\renewcommand\cftsecfont{\fontsize{12}{12}}
+\renewcommand\cftchappagefont{\fontsize{12}{12}}
+\renewcommand\cftsecpagefont{\fontsize{12}{12}}
+%Add Halaman 
+\addtocontents{toc}{~\hfill\textbf{Halaman}\par}
+\addtocontents{lof}{~\hfill\textbf{Halaman}\par}
+\addtocontents{lot}{~\hfill\textbf{Halaman}\par}
+\addtocontents{lol}{~\hfill\textbf{Halaman}\par}
+%Draw a Frame
+\usepackage[linewidth=1pt]{mdframed}
+%Import figure
+\usepackage{float, graphicx, array}
+%Change figure to gambar
+\renewcommand{\figurename}{Gambar}
+%Multipage table
+\usepackage{longtable, multirow}
+\usepackage[tableposition=below]{caption}
+\captionsetup[longtable]{skip=1em}
+%Change table to tabel
+\renewcommand{\tablename}{Tabel}
+%For algorithm
+\usepackage{algpseudocode, algorithm, algorithmicx, listings}
+\lstset{language = Python, inputpath=/Users/kawiswara/Documents/Project/Penulisan-Ilmiah/Program}
+%\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{\begin{large}DAFTAR LAMPIRAN\end{large}}
+%Line spacing
+\usepackage[doublespacing]{setspace}
+\usepackage{textcase}
+%Item line spacing
+\usepackage{enumitem}
+\setlist{nolistsep}
+% Dummy Text
+\usepackage{lipsum}
+
+%Define word
+\newcommand{\namapenulis}{Nama-Penulis} 
+\newcommand{\npmpenulis}{NPM-Penulis}
+\newcommand{\jurusanpenulis}{Jurusan-Penulis}
+\newcommand{\fakultaspenulis}{Fakultas-Penulis}
+\newcommand{\judul}{Judul-Penulisan}
+\newcommand{\tanggalpembuatan}{Tanggal-Pembuatan}
+\newcommand{\bulanpembuatan}{Bulan-Pembuatan}
+\newcommand{\tahunpembuatan}{Tahun-Pembuatan}
+\newcommand{\kotapembuatan}{Kota-Pembuatan}
+\newcommand{\tglsidang}{Tanggal-Sidang}
+\newcommand{\tgllulus}{Tanggal-Lulus}
+\newcommand{\dospem}{Dosen-Pembimbing}
+\newcommand{\kajur}{Ketua-Jurusan}
+\newcommand{\koorpi}{Koordinator-PI}
+\newcommand{\rektor}{Rektor}
+\newcommand{\dekan}{Dekan}
+%Backend
+\begin{document}
+%Cover
+  \pagestyle{empty}
+  \input{../Isi/Cover.tex}
+%Originalitas
+  \pagenumbering{roman}
+  \setcounter{page}{2}
+  \pagestyle{plain}
+  \input{../Isi/Originalitas.tex}
+%Lembar Pengesahan
+  \input{../Isi/LembarPengesahan.tex}
+%Abstrak
+  \input{../Isi/Abstrak.tex}
+%Kata Pengantar
+  \input{../Isi/KataPengantar.tex}
+%Daftar Isi
+  \begin{onehalfspacing}
+  \addcontentsline{toc}{chapter}{DAFTAR ISI}
+  \tableofcontents
+  \end{onehalfspacing}
+  \newpage
+%Daftar Gambar
+  \listoffigures
+  \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+  \newpage
+%Daftar Tabel
+  \listoftables
+  \addcontentsline{toc}{chapter}{DAFTAR TABEL}
+  \newpage
+%Daftar Lampiran
+  \lstlistoflistings
+  \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
+  \label{Daftar-Lampiran}
+  \newpage
+%Bab1
+  \pagenumbering{arabic}
+  \pagestyle{myheadings}
+  \setcounter{page}{1}
+  \input{../Isi/Bab1.tex}
+%Bab2
+  \input{../Isi/Bab2.tex}
+%Bab3
+  \input{../Isi/Bab3.tex}
+%Bab4
+  \input{../Isi/Bab4.tex}
+  \newpage
+%Daftar Pustaka
+  \phantomsection
+  \addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
+  \printbibliography[title={DAFTAR PUSTAKA}]
+  \label{Daftar-Pustaka}
+%Lampiran
+  \newpage
+  \pagenumbering{arabic}
+  \renewcommand{\thepage}{L-\arabic{page}}
+  \pagestyle{myheadings}
+  \setcounter{page}{1}
+  % \input{../Isi/Lampiran.tex}
+\end{document}
